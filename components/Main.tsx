@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <div className="w-250 h-full bg-white dark:bg-neutral-950 px-4 py-8">
         {/* Header */}
-        <section className="w-full flex flex-row">
+        <section className="w-full flex flex-row ">
         {/* Picture */}
         <div className="h-full">
             <img src="profilePicture.png" className="w-40 h-40 md:w-45 object-cover" width="160" height="160"/>
