@@ -4,13 +4,16 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { useThemeToggle } from "@/hooks/useThemeToggle";
 import { GitHubDark, GitHubLight, Gmail, LinkedIn } from "developer-icons";
 import Experience from "./Experience";
+import About from "./About";
+import TechStack from "./TechStack";
+import Projects from "./Projects";
 
 export default function Main() {
 
   const {theme, setTheme} = useThemeToggle();
 
   return (
-    <div className="w-250 bg-white dark:bg-neutral-950 px-4 py-8">
+    <div className="w-250 bg-white dark:bg-neutral-950 px-4 py-8 duration-500 ease-out">
 
         {/* Header */}
         <section className="w-full flex flex-row ">
@@ -22,7 +25,7 @@ export default function Main() {
             <div className="w-full h-full flex flex-col ml-2">
                 {/* Name */}
                 <div className="w-full flex">
-                    <h1 className="w-full font-bold text-gray-950 dark:text-white text-xl md:text-2xl" > Mauries Lopez</h1>
+                    <h1 className="w-full font-bold text-gray-950 dark:text-white text-xl md:text-2xl " > Mauries Lopez</h1>
                     { /* Theme Toggle */ }
                     <div>
                         <ThemeToggle theme={theme} setTheme={setTheme}/>
@@ -59,40 +62,29 @@ export default function Main() {
 
         {/* First Section */}
         <section className="w-full py-3 flex flex-col md:flex-row gap-3">
-            {/* Left Half */}
-            <div className="flex flex-col gap-3">
-                {/* About */}
-                <div className="flex flex-col items-start border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900">
-                    {/* About Title */}
-                    <div className="w-full">
-                        <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100"> About </h1>
-                    </div>
-                    {/* About Description */}
-                    <div className="w-full py-3">
-                        <p className="text-sm text-gray-900 dark:text-gray-100">
-                            Disciplined and objective undergraduate computer science student. Pursues passion and hone individual capabilities. Furthermore, equipped with creative skills to provide quality output and efficient solutions.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="flex flex-col items-start border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900">
-                    {/* Tech Stack Title */}
-                    <div className="w-full">
-                        <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100"> Tech Stack </h1>
-                    </div>
-                    {/* Tech Stacks */}
-                    <div className="w-full py-3">
-                        <p className="text-sm text-gray-900 dark:text-gray-100">
-                            Disciplined and objective undergraduate computer science student. Pursues passion and hone individual capabilities. Furthermore, equipped with creative skills to provide quality output and efficient solutions.
-                        </p>
-                    </div>
+            {/* About */}
+            <div className="order-1 md:order-1 md:flex md:flex-col md:gap-3">
+                <About />
+                {/* TechStack (desktop only in left column) */}
+                <div className="hidden md:block">
+                    <TechStack />
                 </div>
             </div>
-            
-            {/* Right Half */}
-            <div className="md:min-w-70">
-                <Experience/>
+            {/* Experience */}
+            <div className="order-2 md:order-2 md:min-w-70">
+                <Experience />
+            </div>
+            {/* TechStack (mobile only) */}
+            <div className="order-3 md:hidden">
+                <TechStack />
+            </div>
+        </section>
+
+        {/* Second Section */}
+        <section className="w-full flex flex-col md:flex-row gap-3">
+            {/* Projects */}
+            <div className="w-full order-1 md:order-1 md:flex md:flex-col md:gap-3">
+                <Projects/>
             </div>
         </section>
     </div>
