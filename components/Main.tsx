@@ -7,6 +7,8 @@ import Experience from "./Experience";
 import About from "./About";
 import TechStack from "./TechStack";
 import Projects from "./Projects";
+import Certificates from "./Certificates";
+import Recommendations from "./Recommendations";
 
 export default function Main() {
 
@@ -16,7 +18,7 @@ export default function Main() {
     <div className="w-250 bg-white dark:bg-neutral-950 px-4 py-8 duration-500 ease-out">
 
         {/* Header */}
-        <section className="w-full flex flex-row ">
+        <section className="w-full flex flex-row items-center justify-center">
             {/* Picture */}
             <div className="h-full">
                 <img src="profilePicture.png" className="w-40 h-40 md:w-45 object-cover" width="160" height="160"/>
@@ -85,6 +87,18 @@ export default function Main() {
             {/* Projects */}
             <div className="w-full order-1 md:order-1 md:flex md:flex-col md:gap-3">
                 <Projects/>
+            </div>
+        </section>
+
+        {/* Third Section */}
+        <section className="w-full mt-3 flex flex-row md:flex-row gap-3">
+            {/* Certificates */}
+            <div className="order-1 md:order-1 md:flex md:flex-col md:gap-3">
+                <Certificates/>
+            </div>
+            {/* Recommendations */}
+            <div className="order-1 md:order-1 md:flex md:flex-col md:gap-3">
+                <Recommendations/>
             </div>
         </section>
     </div>

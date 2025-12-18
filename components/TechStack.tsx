@@ -8,7 +8,7 @@ export default function TechStack(){
             {/* Tech Stack Title */}
             <div className="w-full flex flex-row items-center ">
                 <h1 className="w-full text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100"> Tech Stack </h1>
-                <a href="/techstack" className="text-xs md:text-sm w-full flex justify-end items-center text-gray-900 dark:text-gray-100 hover:scale-101 transition cursor-pointer text-nowrap">
+                <a href="/techstack" className="text-xs md:text-sm flex justify-end items-center text-gray-900 dark:text-gray-100 hover:scale-101 transition cursor-pointer text-nowrap">
                     View All →
                 </a>
             </div>
