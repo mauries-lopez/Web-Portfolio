@@ -10,7 +10,7 @@ export function useShowModal() {
     }
 
     useEffect(() => {
-        console.log("modal:", modalBool);
+        //console.log("modal:", modalBool);
     }, [modalBool]);
 
     return { modalBool, changeModalBool };
