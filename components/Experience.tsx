@@ -1,13 +1,13 @@
 export default function Experience(){
 
     return (
-        <div className="h-full flex flex-col items-center justify-center border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900 ">
+        <div className="h-full flex flex-col border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900 ">
             {/* Experience Title */}
             <div className="w-full">
                 <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100"> Experience </h1>
             </div>
             {/* Experience Description */}
-            <div className="w-full py-3">
+            <div className="flex flex-col w-full py-3 h-full justify-center">
                 { /* Latest Experience */ }
                 <div className="w-full flex flex-row">
                     <div className="w-full flex flex-col">

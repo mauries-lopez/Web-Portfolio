@@ -91,13 +91,13 @@ export default function Main() {
         </section>
 
         {/* Third Section */}
-        <section className="w-full mt-3 flex flex-row md:flex-row gap-3">
+        <section className="w-full mt-3 flex flex-col md:flex-row gap-3">
             {/* Certificates */}
-            <div className="order-1 md:order-1 md:flex md:flex-col md:gap-3">
+            <div className="w-full md:flex md:flex-col md:gap-3">
                 <Certificates/>
             </div>
             {/* Recommendations */}
-            <div className="order-1 md:order-1 md:flex md:flex-col md:gap-3">
+            <div className="w-full md:flex md:flex-col md:gap-3">
                 <Recommendations/>
             </div>
         </section>
