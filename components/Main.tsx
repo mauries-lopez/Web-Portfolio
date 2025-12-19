@@ -8,7 +8,7 @@ import About from "./About";
 import TechStack from "./TechStack";
 import Projects from "./Projects";
 import Certificates from "./Certificates";
-import Recommendations from "./Recommendations";
+import Testimonials from "./Testimonials";
 
 export default function Main() {
 
@@ -96,11 +96,11 @@ export default function Main() {
             <div className="w-full md:flex md:flex-col md:gap-3">
                 <Certificates/>
             </div>
-            {/* Recommendations */}
+            {/* Testimonial */}
             <div className="w-full md:flex md:flex-col md:gap-3">
-                <Recommendations/>
+                <Testimonials/>
             </div>
-        </section>
+        </section>     
     </div>
   )
 }
