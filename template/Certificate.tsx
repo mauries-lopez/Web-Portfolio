@@ -1,7 +1,13 @@
 import { useShowModal } from "@/hooks/useShowModal";
 import Modal from "./Modal";
 
-export default function Certificate({title, desc, picture}){
+interface CertificateProps {
+    title: string;
+    desc: string;
+    picture: string;
+}
+
+export default function Certificate({title, desc, picture}: CertificateProps){
 
     const {modalBool, changeModalBool} = useShowModal();
 

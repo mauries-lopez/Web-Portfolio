@@ -1,6 +1,13 @@
 "use client";
 
-export default function ThemeToggle({theme, setTheme}) {
+import React from "react";
+
+interface ThemeProps {
+  theme: string;
+  setTheme: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function ThemeToggle({theme, setTheme} : ThemeProps) {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

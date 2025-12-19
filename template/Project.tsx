@@ -1,5 +1,12 @@
+interface ProjectProps {
+    title: string;
+    desc: string;
+    linkDisplay: string;
+    link: string;
+    isPointer: boolean;
+}
 
-export default function Project({title, desc, linkDisplay, link, isPointer}){
+export default function Project({ title, desc, linkDisplay, link, isPointer }: ProjectProps){
     return (
         <a href={isPointer ? link : undefined} target="_blank" className={`w-full flex-1 items-center justify-center bg-neutral-50 dark:bg-neutral-800 border border-stone-300 hover:border-neutral-500 dark:border-neutral-700 flex duration-500 ease-out rounded-lg ${isPointer ? "cursor-pointer" : "cursor-default"}`}>
             <div className={`flex flex-col justify-center items-center p-2`}>
