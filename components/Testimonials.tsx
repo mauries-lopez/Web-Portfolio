@@ -3,7 +3,7 @@ import Testimonial from "@/template/Testimonial";
 export default function Testimonials(){
 
     return (
-        <div className="h-full flex flex-col items-start border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900">
+        <div className="flex flex-col items-start border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900">
             {/* Testimonials Title */}
             <div className="w-full flex flex-row">
                 <h1 className="w-full text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 "> Testimonials </h1>

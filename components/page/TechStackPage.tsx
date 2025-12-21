@@ -1,7 +1,7 @@
 "use client"
 
 import StackElement from "@/template/StackElement";
-import { C, Canva, CPlusPlus, Discord, GoogleCloud, HuggingFace, Java, Markdown, MongoDB, MySQL, NextJs, NPM, Photoshop, Python, PyTorch, React, TailwindCSS, Tensorflow, TypeScript, VisualStudioCode } from "developer-icons";
+import { C, Canva, CPlusPlus, Discord, Figma, GoogleCloud, HuggingFace, Java, Markdown, MongoDB, MySQL, NextJs, NPM, Photoshop, Python, PyTorch, React, TailwindCSS, Tensorflow, TypeScript, VisualStudioCode } from "developer-icons";
 import { useThemeToggle } from "@/hooks/useThemeToggle";
 import { Trello } from "lucide-react";
 
@@ -67,7 +67,6 @@ export default function TechStackPage(){
                     <div className="flex flex-row flex-wrap gap-2">
                         <StackElement element={C} label={"C"}/>
                         <StackElement element={CPlusPlus} label={"C++"}/>
-                        <StackElement element={Markdown} label={"Markdown"}/>
                     </div>
                 </div>
                 {/* Tools */}
@@ -81,6 +80,8 @@ export default function TechStackPage(){
                         <StackElement element={Canva} label={"Canva"}/>
                         <StackElement element={Discord} label={"Discord"}/>
                         <StackElement element={Photoshop} label={"Photoshop"}/>
+                        <StackElement element={Figma} label={"Figma"}/>
+                        <StackElement element={null} label={"Capcut"}/>
                     </div>
                 </div>
             </div>
