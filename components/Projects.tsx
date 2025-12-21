@@ -7,7 +7,7 @@ export default function Projects(){
             {/* Projects Title */}
             <div className="w-full flex flex-row mb-5">
                 <h1 className="w-full text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 "> Projects </h1>
-                <a href="/techstack" className="text-xs md:text-sm flex justify-end items-center text-gray-900 dark:text-gray-100 hover:scale-101 transition cursor-pointer text-nowrap">
+                <a href="/projects" className="text-xs md:text-sm flex justify-end items-center text-gray-900 dark:text-gray-100 hover:scale-101 transition cursor-pointer text-nowrap">
                     View All →
                 </a>
             </div>
