@@ -22,7 +22,7 @@ export default function ProjectsPage(){
                 <Project title={"RateRocket"} desc={"Expert-guided financial product comparison platform"} link={"https://www.raterocket.net"} linkDisplay={"raterocket.net"} isPointer={true}/>
                 <Project title={"Filbis"} desc={"Health Chatbot"} link={"https://filbis-v2.vercel.app/"} linkDisplay={"filbis-v2.vercel.app"} isPointer={true}/>
                 <Project title={"Arrows Shuttle"} desc={"Shuttle Reservation System"} link={"https://dlsu-shuttle.onrender.com/"} linkDisplay={"dlsu-shuttle.onrender.com"} isPointer={true}/>
-                <Project title={"KadaCraft"} desc={"Minecraft YouTubers Space"} link={"https://kadacraft.onrender.com/"} linkDisplay={"kadacraft.onrender.com"} isPointer={true}/>
+                <Project title={"KadaCraft"} desc={"Minecraft YouTubers Space"} link={"https://kadacraft.netlify.app/"} linkDisplay={"kadacraft.netlify.app"} isPointer={true}/>
             </div>
         </div>        
     )
