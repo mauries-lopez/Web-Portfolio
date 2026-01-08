@@ -11,6 +11,7 @@ export default function Certificates(){
             {/* Certificates */}
             <div className="w-full flex flex-col flex-wrap gap-3 justify-center items-center ">
                 <Certificate title={"Certificate of Publication"} desc={"De La Salle Research Congress 2025"} picture={"CertificateOfPublication.png"}/>
+                <Certificate title={"Certificate of Recognition"} desc={"De La Salle Research Congress 2025"} picture={"CertificateOfRecognition.png"}/>
             </div>
         </div>
     )

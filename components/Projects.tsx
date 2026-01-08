@@ -13,9 +13,9 @@ export default function Projects(){
             </div>
             {/* Recent Projects */}
             <div className="w-full flex flex-col md:flex-row gap-3">
-                <Project title={"BERT-Based Sentiment Prediction Model"} desc={"Trained 155 BERT-based models to identify the best transformer for sentiment analysis on Philippine text data."} link={""} linkDisplay={"Thesis"} isPointer={false}/>
-                <Project title={"RateRocket"} desc={"Expert-guided financial product comparison platform"} link={"https://www.raterocket.net"} linkDisplay={"raterocket.net"} isPointer={true}/>
-                <Project title={"Filbis"} desc={"Health Chatbot"} link={"https://filbis-v2.vercel.app/"} linkDisplay={"filbis-v2.vercel.app"} isPointer={true}/>
+                <Project title={"BERT-Based Sentiment Prediction Model"} desc={"Trained 155 BERT-based models to identify the best transformer for sentiment analysis on Philippine text data."} link={""} linkDisplay={"Thesis"} isPointer={false} techStack={["HuggingFace", "GoogleCloud", "Tensorflow", "PyTorch", "NPM"]}/>
+                <Project title={"RateRocket"} desc={"Expert-guided financial product comparison platform"} link={"https://www.raterocket.net"} linkDisplay={"raterocket.net"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "MongoDB"]}/>
+                <Project title={"KadaCraft"} desc={"Minecraft YouTubers Space"} link={"https://kadacraft.netlify.app/"} linkDisplay={"kadacraft.netlify.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Supabase", "Insomnia","YouTube Data API"]}/>
             </div>
         </div>
     )
