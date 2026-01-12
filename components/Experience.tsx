@@ -12,7 +12,7 @@ export default function Experience(){
                 <div className="w-full flex flex-row">
                     <div className="w-full flex flex-col">
                         <p className="text-md font-semibold text-gray-900 dark:text-gray-100">
-                            Web Developer
+                            Research Assistant
                         </p>
                         <p className="text-sm text-gray-900 dark:text-gray-100">
                             De La Salle University - TE3D House
