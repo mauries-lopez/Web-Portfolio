@@ -35,8 +35,8 @@ export default function Main() {
                 </div>
                 {/* School */}
                 <div className="w-full flex flex-col gap-1 py-1">
-                    <h2 className="text-xs md:text-lg font-bold text-gray-700 dark:text-white"> BS Computer Science Major in Software Technology </h2>
-                    <h3 className="text-xs md:text-lg font-semibold text-gray-700 dark:text-white"> De La Salle University </h3>
+                    <h2 className="text-xs md:text-lg font-bold text-gray-700 dark:text-white"> Software Engineer </h2>
+                    <h3 className="text-xs md:text-base font-semibold text-gray-700 dark:text-white"> BS Computer Science Graduate at De La Salle University</h3>
                 </div>
                 {/* Social Media Btns */}
                 <div className="w-full h-full flex flex-col gap-2 my-1">
