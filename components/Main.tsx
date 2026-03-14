@@ -21,7 +21,7 @@ export default function Main() {
         <section className="w-full flex flex-row items-center justify-center">
             {/* Picture */}
             <div className="h-full">
-                <img src="FormalPicture.jpg" className="w-40 h-40 md:w-45 object-cover" width="160" height="160"/>
+                <img src="FormalPicture.jpg" className="w-40 h-40 md:w-45 object-cover object-[center_0%]" width="160" height="160"/>
             </div>
             {/* Details */}
             <div className="w-full h-full flex flex-col ml-2">
