@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mauries Lopez - Software Developer",
+  title: "Mauries Lopez - Software Engineer",
   description: "",
 };
 
