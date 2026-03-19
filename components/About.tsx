@@ -11,7 +11,7 @@ export default function About(){
             {/* About Description */}
             <div className="w-full py-3">
                 <p className="text-sm text-gray-900 dark:text-gray-100">
-                    Disciplined and objective undergraduate computer science student. Pursues passion and hone individual capabilities. Furthermore, equipped with creative skills to provide quality output and efficient solutions.
+                    Disciplined and objective software engineer. Pursues passion and hone individual capabilities. Furthermore, equipped with creative skills to provide quality output and efficient solutions.
                 </p>
             </div>
             {/* Interests Title */}

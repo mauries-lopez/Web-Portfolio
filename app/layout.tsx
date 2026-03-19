@@ -14,7 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mauries Lopez - Software Engineer",
-  description: "",
+  description: "Mauries Lopez is a software engineer with experience in full stack web development.",
+  keywords: ["Software Engineer", "Web Development"],
+  authors: [{ name: "Mauries Lopez" }],
+  creator: "Mauries Lopez",
+  publisher: "Mauries Lopez"
 };
 
 export default function RootLayout({
