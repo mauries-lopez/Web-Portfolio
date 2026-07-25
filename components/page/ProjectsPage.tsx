@@ -32,6 +32,7 @@ export default function ProjectsPage(){
             {/* Recent Projects */}
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 py-2">
                 <Project title={"RateRocket"} desc={"Expert-guided financial product comparison platform"} link={"https://www.raterocket.net"} linkDisplay={"raterocket.net"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "MongoDB"]}/>
+                <Project title={"DateTayo"} desc={"Personalized Digital Love Letter in Seconds"} link={"https://datetayo.netlify.app/"} linkDisplay={"datetayo.netlify.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Supabase"]}/>
                 <Project title={"Stat-ify"} desc={"Spotify Visualization Tool"} link={"https://stat-ify.netlify.app/"} linkDisplay={"stat-ify.netlify.app"} isPointer={true} techStack={["React","NextJs", "Spotify Web API"]}/>
                 <Project title={"KadaCraft"} desc={"Minecraft YouTubers Space"} link={"https://kadacraft.netlify.app/"} linkDisplay={"kadacraft.netlify.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Supabase", "Insomnia","YouTube Data API"]}/>
                 <Project title={"Filbis"} desc={"Health Chatbot"} link={"https://filbis-v2.vercel.app/"} linkDisplay={"filbis-v2.vercel.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Firebase", "FastAPI", "Dialogue Flow"]}/>
