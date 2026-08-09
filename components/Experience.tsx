@@ -1,98 +1,56 @@
 export default function Experience(){
+    const experiences = [
+        {
+            role: "Junior Software Engineer",
+            company: "oboda",
+            date: "March 2026 - Current",
+            isCurrent: true,
+        },
+        {
+            role: "Web Developer",
+            company: "De La Salle University - TE3D House",
+            date: "Jun — Aug 2024",
+            isCurrent: false,
+        },
+        {
+            role: "V.P for Publicity and Creatives",
+            company: "De La Salle University - LSCS Laguna",
+            date: "Dec 2021 — May 2024",
+            isCurrent: false,
+        },
+        {
+            role: "Chairperson for Creatives",
+            company: "Office of the Campus Secretary - DLSU LCSG",
+            date: "Jan — Apr 2021",
+            isCurrent: false,
+        },
+    ];
 
     return (
-        <div className="h-full flex flex-col border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900 ">
-            {/* Experience Title */}
-            <div className="w-full">
-                <h1 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100"> Experience </h1>
-            </div>
-            {/* Experience Description */}
-            <div className="flex flex-col w-full py-3 h-full justify-center">
-
-                { /* Latest Experience */ }
-                <div className="w-full flex flex-row">
-                    <div className="w-full flex flex-col">
-                        <p className="text-md font-semibold text-gray-900 dark:text-gray-100">
-                            Junior Software Engineer
-                        </p>
-                        <p className="text-sm text-gray-900 dark:text-gray-100">
-                            oboda
-                        </p>
-                        <p className="text-xs text-gray-600 dark:text-neutral-400">
-                            March 2, 2026
-                        </p>
+        <div>
+            {experiences.map((exp, i) => (
+                <div
+                    key={i}
+                    className={`flex justify-between items-start ${exp.isCurrent ? "py-5 px-4 -mx-4 bg-stone-50 dark:bg-neutral-900" : ""} ${i !== 0 && !exp.isCurrent ? "border-t border-stone-100 dark:border-neutral-800 pt-5 mt-5" : ""}`}
+                >
+                    <div className="flex items-start gap-3">
+                        {exp.isCurrent && (
+                            <span className="mt-1.5 h-2 w-2 rounded-full bg-amber-500 flex-shrink-0" />
+                        )}
+                        <div className="flex flex-col">
+                            <p className={`text-sm md:text-base ${exp.isCurrent ? "font-bold text-gray-950 dark:text-white" : "font-semibold text-gray-900 dark:text-gray-100"}`}>
+                                {exp.role}
+                            </p>
+                            <p className="text-sm text-gray-500 dark:text-neutral-500 mt-0.5">
+                                {exp.company}
+                            </p>
+                        </div>
                     </div>
-                    <div className="ml-5">
-                        <p className="text-[0.6rem] text-gray-900 dark:text-gray-100 items-end bg-neutral-50 dark:bg-neutral-800 border border-solid  border-stone-300 dark:border-neutral-700 rounded-full p-1">
-                            Current
-                        </p>
-                    </div>
+                    <span className={`text-xs font-mono tabular-nums whitespace-nowrap ml-4 mt-0.5 ${exp.isCurrent ? "text-amber-600 dark:text-amber-400 font-semibold" : "text-gray-400 dark:text-neutral-600"}`}>
+                        {exp.isCurrent ? "" : ""}{exp.date}
+                    </span>
                 </div>
-
-                <br></br>
-
-                <div className="w-full flex flex-row">
-                    <div className="w-full flex flex-col">
-                        <p className="text-md font-semibold text-gray-900 dark:text-gray-100">
-                            Web Developer
-                        </p>
-                        <p className="text-sm text-gray-900 dark:text-gray-100">
-                            De La Salle University - TE3D House
-                        </p>
-                        <p className="text-xs text-gray-600 dark:text-neutral-400">
-                            June 2024 - Aug 2024
-                        </p>
-                    </div>
-                    <div className="ml-5">
-                        <p className="text-[0.6rem] text-gray-900 dark:text-gray-100 items-end bg-neutral-50 dark:bg-neutral-800 border border-solid  border-stone-300 dark:border-neutral-700 rounded-full p-1">
-                            2024
-                        </p>
-                    </div>
-                </div>
-
-                <br></br>
-                
-                <div className="w-full flex flex-row">
-                    <div className="w-full flex flex-col">
-                        <p className="text-md font-semibold text-gray-900 dark:text-gray-100">
-                            V.P for Publicity and Creatives
-                        </p>
-                        <p className="text-sm text-gray-900 dark:text-gray-100">
-                            De La Salle University - LSCS Laguna
-                        </p>
-                        <p className="text-xs text-gray-600 dark:text-neutral-400">
-                            December 2021 - May 2024
-                        </p>
-                    </div>
-                    <div className="ml-5">
-                        <p className="text-[0.6rem] text-gray-900 dark:text-gray-100 items-end bg-neutral-50 dark:bg-neutral-800 border border-solid  border-stone-300 dark:border-neutral-700 rounded-full p-1">
-                            2024
-                        </p>
-                    </div>
-                </div>
-
-                <br></br>
-                
-                { /* 3rd Experience */ }
-                <div className="w-full flex flex-row">
-                    <div className="w-full flex flex-col">
-                        <p className="text-md font-semibold text-gray-900 dark:text-gray-100">
-                            Chairperson for Creatives
-                        </p>
-                        <p className="text-sm text-gray-900 dark:text-gray-100">
-                            Office of the Campus Secretary - DLSU LCSG
-                        </p>
-                        <p className="text-xs text-gray-600 dark:text-neutral-400">
-                            January 2021 - April 2021
-                        </p>
-                    </div>
-                    <div className="ml-5">
-                        <p className="text-[0.6rem] text-gray-900 dark:text-gray-100 items-end bg-neutral-50 dark:bg-neutral-800 border border-solid  border-stone-300 dark:border-neutral-700 rounded-full p-1">
-                            2021
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> 
+            ))}
+        </div>
     )
 }

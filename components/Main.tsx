@@ -1,114 +1,152 @@
 "use client"
 
-import ThemeToggle from "@/components/ThemeToggle";
 import { useThemeToggle } from "@/hooks/useThemeToggle";
 import { GitHubDark, GitHubLight, Gmail, LinkedIn } from "developer-icons";
-import Experience from "./Experience";
+import Image from "next/image";
 import About from "./About";
+import Experience from "./Experience";
 import TechStack from "./TechStack";
 import Projects from "./Projects";
 import Certificates from "./Certificates";
 import Testimonials from "./Testimonials";
-import Image from "next/image";
 
 export default function Main() {
-
-  const {theme, setTheme} = useThemeToggle();
+  const { theme } = useThemeToggle();
 
   return (
-    <div className="w-250 bg-white dark:bg-neutral-950 px-4 py-8 duration-500 ease-out">
+    <div>
 
-        {/* Header */}
-        <section className="w-full flex flex-row items-center justify-center">
-            {/* Picture */}
-            <div className="h-full">
-                <Image 
-                    src="/FormalPicture.jpg" 
-                    alt="Mauries Lopez" 
-                    className="w-40 h-40 md:w-45 object-cover object-[center_0%]" 
-                    width={160} 
-                    height={160}
-                    priority
-                />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+
+        {/* ── Hero ── */}
+        <section className="py-8 md:min-h-[75vh] md:flex md:items-center">
+          <div className="w-full md:grid md:grid-cols-2 md:gap-10 lg:gap-16 md:items-center">
+            {/* Photo — above on mobile, right on desktop */}
+            <div className="flex justify-center md:justify-end md:order-2 mb-6 md:mb-0">
+              <Image
+                src="/FormalPicture.jpg"
+                alt="Mauries Lopez"
+                className="w-40 h-40 sm:w-48 sm:h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover object-[center_0%]"
+                width={384}
+                height={384}
+                priority
+              />
             </div>
-            {/* Details */}
-            <div className="w-full h-full flex flex-col ml-2">
-                {/* Name */}
-                <div className="w-full flex">
-                    <h1 className="w-full font-bold text-gray-950 dark:text-white text-xl md:text-2xl " > Mauries Lopez</h1>
-                    { /* Theme Toggle */ }
-                    <div>
-                        <ThemeToggle theme={theme} setTheme={setTheme}/>
-                    </div>
-                </div>
-                {/* School */}
-                <div className="w-full flex flex-col gap-1 py-1">
-                    <h2 className="text-xs md:text-lg font-bold text-gray-700 dark:text-white"> Software Engineer </h2>
-                    <h3 className="text-xs md:text-base font-semibold text-gray-700 dark:text-white"> BS Computer Science Graduate at De La Salle University</h3>
-                </div>
-                {/* Social Media Btns */}
-                <div className="w-full h-full flex flex-col gap-2 my-1">
-                    <a href="mailto:maurieslopez1800@gmail.com" className="w-full p-1 md:h-6 rounded-md flex items-center justify-center shadow transition text-sm md:text-md font-semibold dark:bg-gray-200 dark:text-gray-900 bg-stone-800 text-gray-100 hover:scale-101 active:scale-100 gap-x-1 cursor-pointer">
-                        <Gmail size={15}/>
-                        Send Email
-                    </a>
-                    <div className="w-full flex flex-row gap-2">
-                        <a href="https://github.com/mauries-lopez" target="_blank" className="w-full p-1 md:h-6 rounded-md flex items-center justify-center shadow transition text-sm md:text-md font-semibold bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-gray-100 hover:scale-101 active:scale-100 gap-x-1 cursor-pointer">
-                        {theme === "dark" ? (
-                            <GitHubLight size={15}/>
-                        ) : (
-                            <GitHubDark size={15}/>
-                        )}
-                        GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/mauries-lopez/" target="_blank" className="w-full p-1 md:h-6 rounded-md flex items-center justify-center shadow transition text-sm md:text-md font-semibold bg-gray-200 text-gray-900 dark:bg-stone-800 dark:text-gray-100 hover:scale-101 active:scale-100 gap-x-1 cursor-pointer">
-                        <LinkedIn size={15}/>
-                        LinkedIn
-                        </a>
-                    </div>
-                </div>
+
+            {/* Text — below on mobile, left on desktop */}
+            <div className="flex flex-col items-center md:items-start justify-center md:order-1 text-center md:text-left">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] md:leading-[0.88] text-gray-950 dark:text-white">
+                Mauries Lopez
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-500 dark:text-neutral-500 font-normal mt-3 md:mt-10 tracking-tight">
+                Software Engineer
+              </p>
+              <p className="text-sm text-gray-400 dark:text-neutral-600 mt-1 md:mt-2 font-mono">
+                BS Computer Science &middot; De La Salle University
+              </p>
+
+              <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-5 md:mt-6">
+                <a
+                  href="mailto:maurieslopez1800@gmail.com"
+                  className="rounded-full px-4 py-2 text-sm font-medium bg-stone-800 text-gray-100 dark:bg-gray-200 dark:text-gray-900 hover:opacity-90 active:scale-95 transition-all flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+                >
+                  <Gmail size={14} />
+                  Email
+                </a>
+                <a
+                  href="https://github.com/mauries-lopez"
+                  target="_blank"
+                  className="rounded-full px-4 py-2 text-sm font-medium border border-stone-300 dark:border-neutral-700 text-gray-700 dark:text-neutral-300 hover:border-stone-400 dark:hover:border-neutral-500 active:scale-95 transition-all flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+                >
+                  {theme === "dark" ? <GitHubLight size={14} /> : <GitHubDark size={14} />}
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mauries-lopez/"
+                  target="_blank"
+                  className="rounded-full px-4 py-2 text-sm font-medium border border-stone-300 dark:border-neutral-700 text-gray-700 dark:text-neutral-300 hover:border-stone-400 dark:hover:border-neutral-500 active:scale-95 transition-all flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+                >
+                  <LinkedIn size={14} />
+                  LinkedIn
+                </a>
+              </div>
             </div>
+          </div>
         </section>
 
-        {/* First Section */}
-        <section className="w-full py-3 flex flex-col md:flex-row gap-3">
-            {/* About */}
-            <div className="order-1 md:order-1 md:flex md:flex-col md:gap-3">
-                <About />
-                {/* TechStack (desktop only in left column) */}
-                <div className="hidden md:block">
-                    <TechStack />
-                </div>
-            </div>
-            {/* Experience */}
-            <div className="order-2 md:order-2 md:min-w-70">
-                <Experience />
-            </div>
-            {/* TechStack (mobile only) */}
-            <div className="order-3 md:hidden">
-                <TechStack />
-            </div>
+        {/* ── 01 About ── */}
+        <section id="about" className="mt-10 md:mt-24">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+            01 &mdash; About
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+            Software engineering with purpose
+          </h2>
+          <About />
         </section>
 
-        {/* Second Section */}
-        <section className="w-full flex flex-col md:flex-row gap-3">
-            {/* Projects */}
-            <div className="w-full order-1 md:order-1 md:flex md:flex-col md:gap-3">
-                <Projects/>
-            </div>
+        {/* ── 02 Experience ── */}
+        <section id="experience" className="mt-24 md:mt-36">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+            02 &mdash; Experience
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+            Where I have worked
+          </h2>
+          <Experience />
         </section>
 
-        {/* Third Section */}
-        <section className="w-full mt-3 flex flex-col md:flex-row gap-3">
-            {/* Certificates */}
-            <div className="w-full md:flex md:flex-col md:gap-3">
-                <Certificates/>
-            </div>
-            {/* Testimonial */}
-            <div className="w-full md:flex md:flex-col md:gap-3">
-                <Testimonials/>
-            </div>
-        </section>     
+        {/* ── 03 Tech Stack ── */}
+        <section id="techstack" className="mt-24 md:mt-36">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+            03 &mdash; Tech Stack
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+            Tools and technologies
+          </h2>
+          <TechStack />
+        </section>
+
+      </div>
+
+      {/* ── 04 Projects (full-width carousel) ── */}
+      <section id="projects" className="mt-24 md:mt-36">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+            04 &mdash; Projects
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+            What I have built
+          </h2>
+        </div>
+        <Projects />
+      </section>
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+
+        {/* ── 05 Certificates ── */}
+        <section id="certificates" className="mt-24 md:mt-36">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+            05 &mdash; Certificates
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+            Papers and recognition
+          </h2>
+          <Certificates />
+        </section>
+
+        {/* ── 06 Testimonials ── */}
+        <section id="testimonials" className="mt-24 md:mt-36">
+          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+            06 &mdash; Testimonials
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+            What people say
+          </h2>
+          <Testimonials />
+        </section>
+
+      </div>
     </div>
   )
 }

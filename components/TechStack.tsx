@@ -2,23 +2,19 @@ import StackElement from "../template/StackElement";
 import { GoogleCloud, HuggingFace, Java, MongoDB, MySQL, NextJs, NPM, Python, PyTorch, React, TailwindCSS, Tensorflow, TypeScript } from "developer-icons";
 
 export default function TechStack(){
-
     return(
-        <div className="flex flex-col items-start border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900">
-            {/* Tech Stack Title */}
-            <div className="w-full flex flex-row items-center ">
-                <h1 className="w-full text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100"> Tech Stack </h1>
-                <a href="/techstack" className="text-xs md:text-sm flex justify-end items-center text-gray-900 dark:text-gray-100 hover:scale-101 transition cursor-pointer text-nowrap">
-                    View All →
+        <div>
+            <div className="flex flex-row items-center mb-5">
+                <a href="/techstack" className="text-xs tracking-wider text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors ml-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm">
+                    View All &rarr;
                 </a>
             </div>
-            {/* Tech Stacks */}
-            <div className="flex flex-col gap-3 py-2">
-                {/* Frontend */}
-                <div className="w-full flex flex-col">
-                    <h2 className="font-semibold text-gray-900 dark:text-gray-100 py-1">
+
+            <div className="space-y-5">
+                <div>
+                    <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
                         Frontend
-                    </h2>
+                    </h3>
                     <div className="flex flex-row flex-wrap gap-2">
                         <StackElement element={React} label={"React"}/>
                         <StackElement element={TailwindCSS} label={"TailwindCSS"}/>
@@ -27,11 +23,10 @@ export default function TechStack(){
                     </div>
                 </div>
 
-                {/* Backend */}
-                <div className="w-full flex flex-col">
-                    <h2 className="font-semibold text-gray-900 dark:text-gray-100 py-1">
+                <div>
+                    <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
                         Backend
-                    </h2>
+                    </h3>
                     <div className="flex flex-row flex-wrap gap-2">
                         <StackElement element={MySQL} label={"MySQL"}/>
                         <StackElement element={MongoDB} label={"MongoDB"}/>
@@ -40,14 +35,13 @@ export default function TechStack(){
                     </div>
                 </div>
 
-                {/* AI & Machine Learning */}
-                <div className="w-full flex flex-col">
-                    <h2 className="font-semibold text-gray-900 dark:text-gray-100 py-1">
-                        AI & Machine Learning
-                    </h2>
+                <div>
+                    <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
+                        AI &amp; Machine Learning
+                    </h3>
                     <div className="flex flex-row flex-wrap gap-2">
                         <StackElement element={HuggingFace} label={"Hugging Face"}/>
-                        <StackElement element={HuggingFace} label={"Transformers (BERT Models)"}/>
+                        <StackElement element={HuggingFace} label={"Transformers"}/>
                         <StackElement element={GoogleCloud} label={"Colab"}/>
                         <StackElement element={GoogleCloud} label={"DialogFlow CX"}/>
                         <StackElement element={NPM} label={"NPM"}/>

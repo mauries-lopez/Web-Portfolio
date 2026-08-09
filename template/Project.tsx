@@ -47,25 +47,45 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
         JavaScript
     };
 
-    return (
-        <a href={isPointer ? link : undefined} target="_blank" className={`w-full flex-1 items-center justify-center bg-neutral-50 dark:bg-neutral-800 border border-stone-300 hover:border-neutral-500 dark:border-neutral-700 flex duration-500 ease-out rounded-lg ${isPointer ? "cursor-pointer" : "cursor-default"}`}>
-            <div className={`h-full flex flex-col justify-center items-center p-2 gap-2`}>
-                <p className="text-base font-medium text-gray-900 dark:text-gray-100 text-center">
+    const content = (
+        <div className="flex flex-col justify-between p-5 h-full">
+            <div>
+                <p className="font-semibold text-base text-gray-900 dark:text-gray-100">
                     {title}
                 </p>
-                <p className="h-full text-xs text-gray-900 dark:text-gray-100 text-center flex justify-center items-center">
+                <p className="text-sm text-gray-500 dark:text-neutral-500 leading-relaxed mt-2">
                     {desc}
                 </p>
-                <div className="h-full max-w-100 flex flex-wrap gap-2 justify-center items-center">
+            </div>
+            <div className="mt-4 space-y-3">
+                <div className="flex flex-wrap gap-1.5">
                     {techStack && techStack.map((t) => {
                         const Icon = iconMap[t] ?? null;
                         return <StackElement key={t} element={Icon} label={t} />;
                     })}
                 </div>
-                <p className="text-xs text-gray-900 dark:text-gray-100 bg-neutral-200 dark:bg-neutral-900 px-2 py-1 rounded-2xl flex justify-center items-center mt-1">
+                <p className="text-xs text-gray-400 dark:text-neutral-600 font-mono">
                     {linkDisplay}
                 </p>
             </div>
-        </a>
-    )
+        </div>
+    );
+
+    if (isPointer) {
+        return (
+            <a
+                href={link}
+                target="_blank"
+                className="block h-full border border-stone-200 dark:border-neutral-800 hover:border-stone-400 dark:hover:border-neutral-600 transition-colors duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            >
+                {content}
+            </a>
+        );
+    }
+
+    return (
+        <div className="h-full border border-stone-200 dark:border-neutral-800">
+            {content}
+        </div>
+    );
 }

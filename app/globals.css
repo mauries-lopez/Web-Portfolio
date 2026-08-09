@@ -1,2 +1,22 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carousel-track {
+    animation: scroll 35s linear infinite;
+  }
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
