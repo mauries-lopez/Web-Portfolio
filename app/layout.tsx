@@ -15,12 +15,65 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mauries Lopez - Software Engineer",
-  description: "Mauries Lopez is a software engineer with experience in full stack web development.",
-  keywords: ["Software Engineer", "Web Development"],
+  metadataBase: new URL("https://maurieslopez.netlify.app"),
+  title: {
+    default: "Mauries Lopez — Software Engineer & Full Stack Developer",
+    template: "%s | Mauries Lopez",
+  },
+  description:
+    "Mauries Lopez is a software engineer and full stack developer from De La Salle University specializing in React, Next.js, TypeScript, Python, and machine learning.",
+  keywords: [
+    "Mauries Lopez",
+    "Software Engineer",
+    "Full Stack Developer",
+    "Web Development",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Machine Learning",
+    "Python",
+    "De La Salle University",
+    "Portfolio",
+    "Frontend Developer",
+    "Backend Developer",
+    "Philippines",
+    "NLP",
+    "Sentiment Analysis",
+  ],
   authors: [{ name: "Mauries Lopez" }],
   creator: "Mauries Lopez",
-  publisher: "Mauries Lopez"
+  publisher: "Mauries Lopez",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://maurieslopez.netlify.app",
+    siteName: "Mauries Lopez",
+    title: "Mauries Lopez — Software Engineer & Full Stack Developer",
+    description:
+      "Portfolio of Mauries Lopez, software engineer from De La Salle University. Specializing in full stack development, React, Next.js, and machine learning.",
+    images: [
+      {
+        url: "/og-image",
+        width: 1200,
+        height: 630,
+        alt: "Mauries Lopez — Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mauries Lopez — Software Engineer",
+    description:
+      "Portfolio of Mauries Lopez, software engineer from De La Salle University.",
+    images: ["/og-image"],
+  },
 };
 
 export default function RootLayout({

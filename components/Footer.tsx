@@ -22,6 +22,7 @@ export default function Footer() {
           <a
             href="https://github.com/mauries-lopez"
             target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
           >
             {theme === "dark" ? <GitHubLight size={16} /> : <GitHubDark size={16} />}
@@ -29,6 +30,7 @@ export default function Footer() {
           <a
             href="https://www.linkedin.com/in/mauries-lopez/"
             target="_blank"
+            rel="noopener noreferrer"
             className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
           >
             <LinkedIn size={16} />
