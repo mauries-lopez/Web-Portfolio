@@ -17,6 +17,7 @@ const links = [
 export default function Navbar() {
   const { theme, setTheme } = useThemeToggle();
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -26,6 +27,36 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Active section tracking
+  useEffect(() => {
+    const sectionIds = links.map(l => l.id);
+    const observers: IntersectionObserverEntry[] = [];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = observers.findIndex((o) => o.target === entry.target);
+          if (idx === -1) observers.push(entry);
+          else observers[idx] = entry;
+        });
+
+        const visible = observers.filter((o) => o.isIntersecting);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Escape key for mobile menu
   useEffect(() => {
     if (!open) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -34,6 +65,13 @@ export default function Navbar() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [open, close]);
+
+  const navLinkClass = (id: string) =>
+    `text-xs tracking-wider transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm ${
+      activeSection === id
+        ? "text-gray-950 dark:text-white"
+        : "text-gray-400 dark:text-neutral-500 hover:text-gray-600 dark:hover:text-neutral-300 active:text-gray-700 dark:active:text-neutral-200"
+    }`;
 
   return (
     <nav className="sticky top-0 z-50 h-12 border-b border-stone-200 dark:border-neutral-800 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm">
@@ -48,9 +86,9 @@ export default function Navbar() {
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
-              className="text-xs tracking-wider text-gray-400 dark:text-neutral-500 hover:text-gray-600 dark:hover:text-neutral-300 active:text-gray-700 dark:active:text-neutral-200 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm"
+              className={navLinkClass(link.id)}
             >
-              <span className="font-mono text-[10px] mr-1 text-amber-600 dark:text-amber-400">
+              <span className={`font-mono text-[10px] mr-1 ${activeSection === link.id ? "text-amber-500" : "text-amber-600 dark:text-amber-400"}`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               {link.label}
@@ -80,9 +118,13 @@ export default function Navbar() {
             <button
               key={link.id}
               onClick={() => scrollTo(link.id)}
-              className="min-h-[44px] text-sm text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white active:text-gray-950 dark:active:text-white transition-colors cursor-pointer text-left px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm"
+              className={`min-h-[44px] text-sm transition-colors cursor-pointer text-left px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm ${
+                activeSection === link.id
+                  ? "text-gray-950 dark:text-white"
+                  : "text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-white active:text-gray-950 dark:active:text-white"
+              }`}
             >
-              <span className="font-mono text-xs mr-2 text-amber-600 dark:text-amber-400">
+              <span className={`font-mono text-xs mr-2 ${activeSection === link.id ? "text-amber-500" : "text-amber-600 dark:text-amber-400"}`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               {link.label}

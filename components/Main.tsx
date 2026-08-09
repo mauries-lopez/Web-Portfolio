@@ -3,6 +3,8 @@
 import { useThemeToggle } from "@/hooks/useThemeToggle";
 import { GitHubDark, GitHubLight, Gmail, LinkedIn } from "developer-icons";
 import Image from "next/image";
+import { ArrowDown } from "lucide-react";
+import SectionReveal from "./SectionReveal";
 import About from "./About";
 import Experience from "./Experience";
 import TechStack from "./TechStack";
@@ -13,13 +15,18 @@ import Testimonials from "./Testimonials";
 export default function Main() {
   const { theme } = useThemeToggle();
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
 
         {/* ── Hero ── */}
-        <section className="py-8 md:min-h-[75vh] md:flex md:items-center">
+        <section className="relative py-12 md:min-h-[80vh] md:flex md:items-center">
           <div className="w-full md:grid md:grid-cols-2 md:gap-10 lg:gap-16 md:items-center">
             {/* Photo — above on mobile, right on desktop */}
             <div className="flex justify-center md:justify-end md:order-2 mb-6 md:mb-0">
@@ -72,79 +79,100 @@ export default function Main() {
               </div>
             </div>
           </div>
+
+          {/* Scroll-down arrow */}
+          <button
+            onClick={() => scrollTo("about")}
+            className="absolute bottom-1 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 text-gray-300 dark:text-neutral-700 hover:text-amber-500 dark:hover:text-amber-400 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm"
+            aria-label="Scroll to content"
+          >
+            <ArrowDown size={16} className="animate-bounce" />
+          </button>
         </section>
 
         {/* ── 01 About ── */}
-        <section id="about" className="mt-10 md:mt-24">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
-            01 &mdash; About
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
-            Software engineering with purpose
-          </h2>
-          <About />
-        </section>
+        <SectionReveal>
+          <section id="about" className="mt-24 md:mt-36">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+              01 &mdash; About
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+              Software engineering with purpose
+            </h2>
+            <About />
+          </section>
+        </SectionReveal>
 
         {/* ── 02 Experience ── */}
-        <section id="experience" className="mt-24 md:mt-36">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
-            02 &mdash; Experience
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
-            Where I have worked
-          </h2>
-          <Experience />
-        </section>
+        <SectionReveal>
+          <section id="experience" className="mt-24 md:mt-36">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+              02 &mdash; Experience
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+              Where I have worked
+            </h2>
+            <Experience />
+          </section>
+        </SectionReveal>
 
         {/* ── 03 Tech Stack ── */}
-        <section id="techstack" className="mt-24 md:mt-36">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
-            03 &mdash; Tech Stack
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
-            Tools and technologies
-          </h2>
-          <TechStack />
-        </section>
+        <SectionReveal>
+          <section id="techstack" className="mt-24 md:mt-36">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+              03 &mdash; Tech Stack
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+              Tools and technologies
+            </h2>
+            <TechStack />
+          </section>
+        </SectionReveal>
 
       </div>
 
       {/* ── 04 Projects (full-width carousel) ── */}
-      <section id="projects" className="mt-24 md:mt-36">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
-            04 &mdash; Projects
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
-            What I have built
-          </h2>
-        </div>
-        <Projects />
-      </section>
+      <SectionReveal>
+        <section id="projects" className="mt-24 md:mt-36">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+              04 &mdash; Projects
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+              What I have built
+            </h2>
+          </div>
+          <Projects />
+        </section>
+      </SectionReveal>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
 
         {/* ── 05 Certificates ── */}
-        <section id="certificates" className="mt-24 md:mt-36">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
-            05 &mdash; Certificates
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
-            Papers and recognition
-          </h2>
-          <Certificates />
-        </section>
+        <SectionReveal>
+          <section id="certificates" className="mt-24 md:mt-36">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+              05 &mdash; Certificates
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+              Papers and recognition
+            </h2>
+            <Certificates />
+          </section>
+        </SectionReveal>
 
         {/* ── 06 Testimonials ── */}
-        <section id="testimonials" className="mt-24 md:mt-36">
-          <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
-            06 &mdash; Testimonials
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
-            What people say
-          </h2>
-          <Testimonials />
-        </section>
+        <SectionReveal>
+          <section id="testimonials" className="mt-24 md:mt-36">
+            <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+              06 &mdash; Testimonials
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white mb-8">
+              What people say
+            </h2>
+            <Testimonials />
+          </section>
+        </SectionReveal>
 
       </div>
     </div>
