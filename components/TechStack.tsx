@@ -1,5 +1,5 @@
 import StackElement from "../template/StackElement";
-import { GoogleCloud, HuggingFace, Java, MongoDB, MySQL, NextJs, NPM, Python, PyTorch, React, TailwindCSS, Tensorflow, TypeScript } from "developer-icons";
+import { techSections } from "@/constants/techstack";
 
 export default function TechStack(){
     return(
@@ -11,44 +11,18 @@ export default function TechStack(){
             </div>
 
             <div className="space-y-5">
-                <div>
-                    <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
-                        Frontend
-                    </h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <StackElement element={React} label={"React"}/>
-                        <StackElement element={TailwindCSS} label={"TailwindCSS"}/>
-                        <StackElement element={TypeScript} label={"TypeScript"}/>
-                        <StackElement element={NextJs} label={"Next.js"}/>
+                {techSections.slice(0, 3).map((section) => (
+                    <div key={section.title}>
+                        <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
+                            {section.title}
+                        </h3>
+                        <div className="flex flex-row flex-wrap gap-2">
+                            {section.items.map((item) => (
+                                <StackElement key={item.label} element={item.element} label={item.label} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-
-                <div>
-                    <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
-                        Backend
-                    </h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <StackElement element={MySQL} label={"MySQL"}/>
-                        <StackElement element={MongoDB} label={"MongoDB"}/>
-                        <StackElement element={Python} label={"Python"}/>
-                        <StackElement element={Java} label={"Java"}/>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 className="text-xs uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-3">
-                        AI &amp; Machine Learning
-                    </h3>
-                    <div className="flex flex-row flex-wrap gap-2">
-                        <StackElement element={HuggingFace} label={"Hugging Face"}/>
-                        <StackElement element={HuggingFace} label={"Transformers"}/>
-                        <StackElement element={GoogleCloud} label={"Colab"}/>
-                        <StackElement element={GoogleCloud} label={"DialogFlow CX"}/>
-                        <StackElement element={NPM} label={"NPM"}/>
-                        <StackElement element={PyTorch} label={"PyTorch"}/>
-                        <StackElement element={Tensorflow} label={"Tensorflow"}/>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )

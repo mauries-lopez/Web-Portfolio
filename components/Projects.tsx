@@ -1,16 +1,5 @@
 import Project from "@/template/Project";
-
-const projects = [
-    { title: "BERT-Based Sentiment Prediction Model", desc: "Trained 155 BERT-based models to identify the best transformer for sentiment analysis on Philippine text data.", link: "", linkDisplay: "Thesis", isPointer: false, techStack: ["HuggingFace", "GoogleCloud", "Tensorflow", "PyTorch", "NPM"] },
-    { title: "RateRocket", desc: "Expert-guided financial product comparison platform", link: "https://www.raterocket.net", linkDisplay: "raterocket.net", isPointer: true, techStack: ["React", "NextJs", "TailwindCSS", "MongoDB"] },
-    { title: "DateTayo", desc: "Personalized Digital Love Letter in Seconds", link: "https://datetayo.netlify.app/", linkDisplay: "datetayo.netlify.app", isPointer: true, techStack: ["React", "NextJs", "TailwindCSS", "Supabase"] },
-    { title: "Stat-ify", desc: "Spotify Visualization Tool", link: "https://stat-ify.netlify.app/", linkDisplay: "stat-ify.netlify.app", isPointer: true, techStack: ["React", "NextJs", "Spotify Web API"] },
-    { title: "KadaCraft", desc: "Minecraft YouTubers Space", link: "https://kadacraft.netlify.app/", linkDisplay: "kadacraft.netlify.app", isPointer: true, techStack: ["React", "NextJs", "TailwindCSS", "Supabase", "Insomnia", "YouTube Data API"] },
-    { title: "Filbis", desc: "Health Chatbot", link: "https://filbis-v2.vercel.app/", linkDisplay: "filbis-v2.vercel.app", isPointer: true, techStack: ["React", "NextJs", "TailwindCSS", "Firebase", "FastAPI"] },
-    { title: "Arrows Shuttle", desc: "Shuttle Reservation System", link: "https://dlsu-shuttle.onrender.com/", linkDisplay: "dlsu-shuttle.onrender.com", isPointer: true, techStack: ["HTML5", "CSS3", "ExpressJsDark", "MongoDB", "NodeJs", "JavaScript"] },
-    { title: "Online Enrollment System", desc: "Distributed microservices with horizontal scaling for fault tolerance, scalability, and continuous operation.", link: "", linkDisplay: "Locally Hosted", isPointer: false, techStack: ["Java", "Spring", "MongoDB"] },
-    { title: "Network Media Upload Service", desc: "Multithreaded C# file transfer system using a producer–consumer model with synchronized, leaky-bucket–controlled queues.", link: "", linkDisplay: "Locally Hosted", isPointer: false, techStack: ["CSharp"] },
-];
+import { projects } from "@/constants/projects";
 
 export default function Projects() {
     const doubled = [...projects, ...projects];
@@ -34,6 +23,8 @@ export default function Projects() {
                                     linkDisplay={p.linkDisplay}
                                     isPointer={p.isPointer}
                                     techStack={p.techStack}
+                                    date={p.date}
+                                    stats={p.stats}
                                 />
                             </div>
                         ))}

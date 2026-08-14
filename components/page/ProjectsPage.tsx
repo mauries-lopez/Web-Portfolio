@@ -1,63 +1,44 @@
 "use client"
 
-import { useThemeToggle } from "@/hooks/useThemeToggle";
+import Link from "next/link";
 import Project from "@/template/Project";
-import StackElement from "@/template/StackElement";
+import { projects, type ProjectCategory } from "@/constants/projects";
 
 export default function ProjectsPage(){
 
-    const {theme, setTheme} = useThemeToggle();
+    const sections: { category: ProjectCategory; number: string }[] = [
+        { category: "Thesis", number: "01" },
+        { category: "Web Development", number: "02" },
+        { category: "Others", number: "03" },
+    ];
 
     return (
-        <div className="w-250 flex flex-col items-start border border-solid border-stone-300 dark:border-neutral-700 rounded-md p-5 dark:bg-neutral-900">
-            <a href="/" className="text-xs md:text-sm flex justify-end items-center text-gray-900 dark:text-gray-100 hover:scale-101 transition cursor-pointer text-nowrap">
-                ← Back
-            </a>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-20">
+            <Link href="/" className="inline-flex items-center gap-2 text-xs font-mono tracking-widest text-gray-400 dark:text-neutral-500 hover:text-amber-600 dark:hover:text-amber-400 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm">
+                <span className="text-gray-900 dark:text-gray-100">←</span> Home
+            </Link>
 
-            <h1 className="w-full text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 mt-5"> Projects </h1>
-
-            {/* Thesis Title */}
-            <div className=" flex flex-col mt-5 gap-2">
-                <StackElement element={null} label={"Thesis"}/>
-            </div>
-            {/* Thesis */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 py-2">
-                <Project title={"BERT-Based Sentiment Prediction Model"} desc={"Trained 155 BERT-based models to identify the best transformer for sentiment analysis on Philippine text data."} link={"https://old.dlsu.edu.ph/wp-content/uploads/pdf/conferences/research-congress-proceedings/2025/HCT-206.pdf"} linkDisplay={"Thesis"} isPointer={true} techStack={["HuggingFace", "GoogleCloud", "Tensorflow", "PyTorch", "NPM"]}/>
+            <div className="mt-12 md:mt-16">
+                <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2 block">
+                    Projects
+                </span>
+                <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-950 dark:text-white">
+                    What I have built
+                </h1>
             </div>
 
-            {/* Projects Title */}
-            <div className=" flex flex-col mt-5 gap-2">
-                <StackElement element={null} label={"Web Development"}/>
-            </div>
-            {/* Recent Projects */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 py-2">
-                <Project title={"RateRocket"} desc={"Expert-guided financial product comparison platform"} link={"https://www.raterocket.net"} linkDisplay={"raterocket.net"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "MongoDB"]}/>
-                <Project title={"DateTayo"} desc={"Personalized Digital Love Letter in Seconds"} link={"https://datetayo.netlify.app/"} linkDisplay={"datetayo.netlify.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Supabase"]} embed={
-                    <iframe
-                        src="https://appbuildersph.com/embed/apps/datetayo"
-                        title="DateTayo votes on App Builders PH"
-                        width="300"
-                        height="60"
-                        style={{ border: 0 }}
-                        loading="lazy"
-                        scrolling="no"
-                    />
-                }/>
-                <Project title={"Stat-ify"} desc={"Spotify Visualization Tool"} link={"https://stat-ify.netlify.app/"} linkDisplay={"stat-ify.netlify.app"} isPointer={true} techStack={["React","NextJs", "Spotify Web API"]}/>
-                <Project title={"KadaCraft"} desc={"Minecraft YouTubers Space"} link={"https://kadacraft.netlify.app/"} linkDisplay={"kadacraft.netlify.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Supabase", "Insomnia","YouTube Data API"]}/>
-                <Project title={"Filbis"} desc={"Health Chatbot"} link={"https://filbis-v2.vercel.app/"} linkDisplay={"filbis-v2.vercel.app"} isPointer={true} techStack={["React","NextJs", "TailwindCSS", "Firebase", "FastAPI", "Dialogue Flow"]}/>
-                <Project title={"Arrows Shuttle"} desc={"Shuttle Reservation System"} link={"https://dlsu-shuttle.onrender.com/"} linkDisplay={"dlsu-shuttle.onrender.com"} isPointer={true} techStack={["HTML5", "CSS3", "ExpressJsDark", "MongoDB", "NodeJs", "JavaScript"]}/>
-            </div>
-
-            {/* Others Title */}
-            <div className=" flex flex-col mt-5 gap-2">
-                <StackElement element={null} label={"Others"}/>
-            </div>
-            {/* Other Projects */}
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 py-2">
-                <Project title={"Online Enrollment System"} desc={"The system uses distributed microservices with horizontal scaling to ensure fault tolerance, scalability, and continuous operation despite individual service failures."} link={""} linkDisplay={"Locally Hosted"} isPointer={false} techStack={["Java", "Spring", "RestAPI", "MongoDB", "OAuth2"]}/>
-                <Project title={"Network Media Upload Service"} desc={"The application simulates a multithreaded C# file transfer system using a producer–consumer model with synchronized, leaky-bucket–controlled queues."} link={""} linkDisplay={"Locally Hosted"} isPointer={false} techStack={["CSharp"]}/>
-            </div>
+            {sections.map((section) => (
+                <section key={section.category} className="mt-16 md:mt-24">
+                    <span className="text-xs font-mono uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-4 block">
+                        {section.number} &mdash; {section.category}
+                    </span>
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {projects.filter(p => p.category === section.category).map((p) => (
+                            <Project key={p.title} title={p.title} desc={p.desc} link={p.link} linkDisplay={p.linkDisplay} isPointer={p.isPointer} techStack={p.techStack} date={p.date} stats={p.stats} embed={p.embed}/>
+                        ))}
+                    </div>
+                </section>
+            ))}
         </div>        
     )
 }
