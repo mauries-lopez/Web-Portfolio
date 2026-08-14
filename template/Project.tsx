@@ -8,9 +8,10 @@ interface ProjectProps {
     link: string;
     isPointer: boolean;
     techStack: string[] | null;
+    embed?: React.ReactNode;
 }
 
-export default function Project({ title, desc, linkDisplay, link, isPointer, techStack }: ProjectProps){
+export default function Project({ title, desc, linkDisplay, link, isPointer, techStack, embed }: ProjectProps){
 
     const iconMap: Record<string, React.ComponentType<{ size?: number }> | null> = {
         React,
@@ -57,7 +58,7 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
                     {desc}
                 </p>
             </div>
-            <div className="mt-4 space-y-3">
+            <div className="mt-4 space-y-3 flex flex-col items-center">
                 <div className="flex flex-wrap gap-1.5">
                     {techStack && techStack.map((t) => {
                         const Icon = iconMap[t] ?? null;
@@ -67,6 +68,7 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
                 <p className="text-xs text-gray-400 dark:text-neutral-600 font-mono">
                     {linkDisplay}
                 </p>
+                {embed}
             </div>
         </div>
     );

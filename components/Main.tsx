@@ -79,21 +79,6 @@ export default function Main() {
                   LinkedIn
                 </a>
               </div>
-
-              <div className="mt-6">
-                <p className="text-xs font-mono uppercase tracking-widest text-gray-400 dark:text-neutral-600 mb-2 text-center md:text-left">
-                  What I&apos;m working on
-                </p>
-                <iframe
-                  src="https://appbuildersph.com/embed/apps/datetayo"
-                  title="DateTayo votes on App Builders PH"
-                  width="320"
-                  height="72"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  scrolling="no"
-                />
-              </div>
             </div>
           </div>
 
