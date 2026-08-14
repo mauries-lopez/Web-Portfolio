@@ -1,10 +1,10 @@
 "use client"
 
 import { GitHubDark, GitHubLight, Gmail, LinkedIn } from "developer-icons";
-import { useThemeToggle } from "@/hooks/useThemeToggle";
+import { useTheme } from "@/components/ThemeProvider";
 
 export default function Footer() {
-  const { theme } = useThemeToggle();
+  const { theme } = useTheme();
 
   return (
     <footer className="border-t border-stone-200 dark:border-neutral-800 py-8 mt-24 md:mt-32">

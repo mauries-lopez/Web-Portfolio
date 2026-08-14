@@ -1,6 +1,6 @@
 "use client"
 
-import { useThemeToggle } from "@/hooks/useThemeToggle";
+import { useTheme } from "@/components/ThemeProvider";
 import { GitHubDark, GitHubLight, Gmail, LinkedIn } from "developer-icons";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
@@ -13,7 +13,7 @@ import Certificates from "./Certificates";
 import Testimonials from "./Testimonials";
 
 export default function Main() {
-  const { theme } = useThemeToggle();
+  const { theme } = useTheme();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);

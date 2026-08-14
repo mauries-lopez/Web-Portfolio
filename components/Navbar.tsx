@@ -1,7 +1,7 @@
 "use client"
 
 import ThemeToggle from "@/components/ThemeToggle";
-import { useThemeToggle } from "@/hooks/useThemeToggle";
+import { useTheme } from "@/components/ThemeProvider";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
@@ -15,7 +15,7 @@ const links = [
 ];
 
 export default function Navbar() {
-  const { theme, setTheme } = useThemeToggle();
+  const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 

@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import type { Theme } from "./ThemeProvider";
 
 interface ThemeProps {
-  theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 }
 
 export default function ThemeToggle({theme, setTheme} : ThemeProps) {
