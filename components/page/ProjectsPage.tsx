@@ -22,7 +22,7 @@ export default function ProjectsPage(){
             </div>
             {/* Thesis */}
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 py-2">
-                <Project title={"BERT-Based Sentiment Prediction Model"} desc={"Trained 155 BERT-based models to identify the best transformer for sentiment analysis on Philippine text data."} link={""} linkDisplay={"Thesis"} isPointer={false} techStack={["HuggingFace", "GoogleCloud", "Tensorflow", "PyTorch", "NPM"]}/>
+                <Project title={"BERT-Based Sentiment Prediction Model"} desc={"Trained 155 BERT-based models to identify the best transformer for sentiment analysis on Philippine text data."} link={"https://old.dlsu.edu.ph/wp-content/uploads/pdf/conferences/research-congress-proceedings/2025/HCT-206.pdf"} linkDisplay={"Thesis"} isPointer={true} techStack={["HuggingFace", "GoogleCloud", "Tensorflow", "PyTorch", "NPM"]}/>
             </div>
 
             {/* Projects Title */}

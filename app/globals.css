@@ -17,6 +17,23 @@
   }
 }
 
+/* Mobile: let users swipe manually, no auto-scroll fighting them */
+@media (max-width: 767px) {
+  .carousel-track {
+    animation: none;
+  }
+}
+
 .carousel-track:hover {
   animation-play-state: paused;
+}
+
+/* Hide scrollbar on the mobile swipe row while keeping it scrollable */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

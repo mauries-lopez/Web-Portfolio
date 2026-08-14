@@ -5,7 +5,7 @@ export default function TechStack(){
     return(
         <div>
             <div className="flex flex-row items-center mb-5">
-                <a href="/techstack" className="text-xs tracking-wider text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors ml-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm">
+                <a href="/techstack" className="text-xs tracking-wider text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 hover:underline underline-offset-4 transition-colors ml-auto focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 rounded-sm">
                     View All &rarr;
                 </a>
             </div>
