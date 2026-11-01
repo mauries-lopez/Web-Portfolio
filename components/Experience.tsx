@@ -35,7 +35,7 @@ export default function Experience(){
                 >
                     <div className="flex items-start gap-3">
                         {exp.isCurrent && (
-                            <span className="mt-1.5 h-2 w-2 rounded-full bg-amber-500 flex-shrink-0" />
+                            <span className="mt-1.5 h-2 w-2 rounded-full bg-accent-500 flex-shrink-0" />
                         )}
                         <div className="flex flex-col">
                             <p className={`text-sm md:text-base ${exp.isCurrent ? "font-bold text-gray-950 dark:text-white" : "font-semibold text-gray-900 dark:text-gray-100"}`}>
@@ -46,7 +46,7 @@ export default function Experience(){
                             </p>
                         </div>
                     </div>
-                    <span className={`text-xs font-mono tabular-nums whitespace-nowrap ml-4 mt-0.5 ${exp.isCurrent ? "text-amber-600 dark:text-amber-400 font-semibold" : "text-gray-400 dark:text-neutral-600"}`}>
+                    <span className={`text-xs font-mono tabular-nums whitespace-nowrap ml-4 mt-0.5 ${exp.isCurrent ? "text-accent-600 dark:text-accent-400 font-semibold" : "text-gray-400 dark:text-neutral-600"}`}>
                         {exp.isCurrent ? "" : ""}{exp.date}
                     </span>
                 </div>

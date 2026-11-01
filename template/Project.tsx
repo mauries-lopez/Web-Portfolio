@@ -1,5 +1,6 @@
+import Link from "next/link";
 import StackElement from "./StackElement";
-import { C, Canva, CPlusPlus, CSS3, Discord, Figma, Firebase, GoogleCloud, HTML5, HuggingFace, Insomnia, Java, Markdown, MongoDB, MySQL, NextJs, NPM, Photoshop, Python, PyTorch, React, Supabase, TailwindCSS, Tensorflow, TypeScript, VisualStudioCode, FastAPI, ExpressJsDark, Spring, CSharp, NodeJs, JavaScript} from "developer-icons";
+import { C, Canva, CPlusPlus, CSS3, Discord, Figma, Firebase, GoogleCloud, HTML5, HuggingFace, Insomnia, Java, Markdown, MongoDB, MySQL, NextJs, NPM, Photoshop, Python, PyTorch, React, Supabase, TailwindCSS, Tensorflow, TypeScript, VisualStudioCode, FastAPI, ExpressJsDark, Spring, CSharp, NodeJs, JavaScript, Flutter, Dart, Lua, ClaudeAI} from "developer-icons";
 
 interface ProjectProps {
     title: string;
@@ -11,9 +12,11 @@ interface ProjectProps {
     embed?: React.ReactNode;
     date?: string;
     stats?: string;
+    actionLabel?: string;
+    actionHref?: string;
 }
 
-export default function Project({ title, desc, linkDisplay, link, isPointer, techStack, embed, date, stats }: ProjectProps){
+export default function Project({ title, desc, linkDisplay, link, isPointer, techStack, embed, date, stats, actionLabel, actionHref }: ProjectProps){
 
     const iconMap: Record<string, React.ComponentType<{ size?: number }> | null> = {
         React,
@@ -47,7 +50,11 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
         ExpressJsDark,
         Spring,
         NodeJs,
-        JavaScript
+        JavaScript,
+        Flutter,
+        Dart,
+        Luau: Lua,
+        "Claude Code": ClaudeAI,
     };
 
     const content = (
@@ -56,6 +63,7 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
                 <div className="flex items-baseline justify-between gap-2">
                     <p className="font-semibold text-base text-gray-900 dark:text-gray-100 group-hover:text-gray-950 dark:group-hover:text-white transition-colors duration-300">
                         {title}
+                        {isPointer && <span aria-hidden="true" className="ml-1 text-gray-300 dark:text-neutral-700 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors duration-300">&nearr;</span>}
                     </p>
                     {date && (
                         <p className="text-xs text-gray-400 dark:text-neutral-600 font-mono whitespace-nowrap">
@@ -78,8 +86,16 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
                     {linkDisplay}
                 </p>
                 {embed}
+                {actionLabel && actionHref && (
+                    <Link
+                        href={actionHref}
+                        className="self-start rounded-full px-3 py-1 text-xs font-medium border border-stone-300 dark:border-neutral-700 text-accent-700 dark:text-accent-300 hover:border-accent-500 dark:hover:border-accent-400 hover:underline underline-offset-4 active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
+                    >
+                        {actionLabel} &rarr;
+                    </Link>
+                )}
                 {stats && (
-                    <span className="inline-flex items-center self-start rounded-full border border-amber-600/40 dark:border-amber-400/40 bg-amber-600/10 dark:bg-amber-400/10 px-2.5 py-0.5 text-xs font-bold text-amber-700 dark:text-amber-300 whitespace-nowrap">
+                    <span className="inline-flex items-center self-start rounded-full border border-accent-600/40 dark:border-accent-400/40 bg-accent-600/10 dark:bg-accent-400/10 px-2.5 py-0.5 text-xs font-bold text-accent-700 dark:text-accent-300 whitespace-nowrap">
                         {stats}
                     </span>
                 )}
@@ -92,7 +108,8 @@ export default function Project({ title, desc, linkDisplay, link, isPointer, tec
             <a
                 href={link}
                 target="_blank"
-                className="block h-full border border-stone-200 dark:border-neutral-800 hover:border-stone-400 dark:hover:border-neutral-600 hover:shadow-sm transition-all duration-300 cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+                rel="noopener noreferrer"
+                className="block h-full border border-stone-200 dark:border-neutral-800 hover:border-stone-400 dark:hover:border-neutral-600 hover:-translate-y-0.5 transition-[transform,border-color] duration-300 ease-out cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
             >
                 {content}
             </a>

@@ -2,30 +2,93 @@
 @import "tw-animate-css";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
+/* Accent colour. Point these at another Tailwind palette (e.g. --color-indigo-*) to restyle the whole site. */
+@theme {
+  --color-accent-300: var(--color-teal-300);
+  --color-accent-400: var(--color-teal-400);
+  --color-accent-500: var(--color-teal-500);
+  --color-accent-600: var(--color-teal-600);
+  --color-accent-700: var(--color-teal-700);
+}
+
+html {
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Projects marquee.
+   Default (mobile, reduced motion): native swipe row, clone hidden.
+   Desktop + motion allowed: two identical groups, each slides exactly its own
+   width, so the loop is seamless at any card count or viewport. */
+.marquee {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee-clone {
+  display: none;
+}
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-100%, 0, 0); }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .marquee {
+    overflow: hidden;
+    scroll-snap-type: none;
   }
-  100% {
-    transform: translateX(-50%);
+
+  .marquee-group,
+  .marquee-clone {
+    display: flex;
+    min-width: 100%;
+    animation: marquee var(--marquee-duration, 40s) linear infinite;
+    will-change: transform;
+  }
+
+  .marquee:hover .marquee-group,
+  .marquee:focus-within .marquee-group {
+    animation-play-state: paused;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .carousel-track {
-    animation: scroll 35s linear infinite;
-  }
+/* Smooth in-page navigation, offset for the sticky 3rem navbar */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Mobile: let users swipe manually, no auto-scroll fighting them */
-@media (max-width: 767px) {
-  .carousel-track {
-    animation: none;
-  }
+section[id] {
+  scroll-margin-top: 3rem;
 }
 
-.carousel-track:hover {
-  animation-play-state: paused;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Hide scrollbar on the mobile swipe row while keeping it scrollable */

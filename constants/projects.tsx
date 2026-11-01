@@ -1,4 +1,4 @@
-export type ProjectCategory = "Thesis" | "Web Development" | "Others";
+export type ProjectCategory = "Thesis" | "Games & Apps" | "Web Development" | "Others";
 
 function parseDate(date: string): number {
     // "August 16, 2026" → 20260816 · "2025" → 20251231 · "April 6, 2025" → 20250406
@@ -22,9 +22,34 @@ export interface ProjectData {
     stats?: string;
     category: ProjectCategory;
     embed?: React.ReactNode;
+    actionLabel?: string;
+    actionHref?: string;
 }
 
 const projectEntries: ProjectData[] = [
+    {
+        title: "Yabong",
+        desc: "iOS job application tracker. Log every job you apply to, update its status as you hear back, and see how many days have passed. Everything stays on your iPhone. Currently in development.",
+        link: "",
+        linkDisplay: "iOS · In development",
+        isPointer: false,
+        date: "2026",
+        techStack: ["Flutter", "Dart", "Claude Code"],
+        category: "Games & Apps",
+        actionLabel: "Privacy Policy",
+        actionHref: "/yabong/privacy-policy",
+    },
+    {
+        title: "TuroTuro",
+        desc: "Roblox cooking simulation tycoon game. Built in Luau.",
+        link: "https://www.roblox.com/games/76152224267895/TuroTuro",
+        linkDisplay: "roblox.com/games/TuroTuro",
+        isPointer: true,
+        date: "2026",
+        stats: "100+ visits",
+        techStack: ["Luau", "Claude Code"],
+        category: "Games & Apps",
+    },
     {
         title: "DateTayo",
         desc: "Personalized Digital Love Letter in Seconds",

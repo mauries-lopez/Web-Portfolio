@@ -12,7 +12,7 @@ export default function Certificate({title, desc, picture}: CertificateProps){
 
     return(
         <div
-            className="min-w-[220px] flex-shrink-0 border border-stone-200 dark:border-neutral-800 hover:border-stone-400 dark:hover:border-neutral-600 transition-colors duration-300 cursor-pointer p-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            className="min-w-[220px] flex-shrink-0 border border-stone-200 dark:border-neutral-800 hover:border-stone-400 dark:hover:border-neutral-600 transition-colors duration-300 cursor-pointer p-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
             onClick={changeModalBool}
             role="button"
             tabIndex={0}

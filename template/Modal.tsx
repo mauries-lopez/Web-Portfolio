@@ -69,18 +69,23 @@ export default function Modal({modalBool, changeModalBool, picture}: ModalProps)
             >
                 <button
                     onClick={close}
-                    className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-white dark:bg-neutral-800 border border-stone-200 dark:border-neutral-700 flex items-center justify-center hover:bg-stone-100 dark:hover:bg-neutral-700 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+                    className="absolute -top-3 -right-3 h-8 w-8 rounded-full bg-white dark:bg-neutral-800 border border-stone-200 dark:border-neutral-700 flex items-center justify-center hover:bg-stone-100 dark:hover:bg-neutral-700 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
                     aria-label="Close"
                 >
                     <X size={14} />
                 </button>
-                <Image 
-                    src={`/${picture}`} 
-                    alt="Certificate"
-                    className="w-full max-w-3xl h-auto object-contain rounded"
-                    width={1200}
-                    height={800}
-                />
+                {/* Mounted only while open, so the certificate downloads on demand */}
+                {modalBool && (
+                    <Image
+                        src={`/${picture}`}
+                        alt="Certificate"
+                        className="w-full max-w-3xl h-auto max-h-[80vh] object-contain rounded"
+                        width={1200}
+                        height={800}
+                        sizes="(min-width: 768px) 768px, 100vw"
+                        loading="lazy"
+                    />
+                )}
             </div>
         </div>
     )

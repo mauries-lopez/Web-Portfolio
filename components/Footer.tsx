@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <a
             href="mailto:maurieslopez1800@gmail.com"
-            className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
           >
             <Gmail size={16} />
           </a>
@@ -23,7 +23,7 @@ export default function Footer() {
             href="https://github.com/mauries-lopez"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
           >
             {theme === "dark" ? <GitHubLight size={16} /> : <GitHubDark size={16} />}
           </a>
@@ -31,7 +31,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/mauries-lopez/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+            className="text-gray-400 dark:text-neutral-600 hover:text-gray-600 dark:hover:text-neutral-400 transition-colors rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
           >
             <LinkedIn size={16} />
           </a>
